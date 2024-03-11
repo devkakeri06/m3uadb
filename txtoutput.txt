@@ -1,0 +1,113 @@
+------------------------DPC & LSN------------------------
+
+ent-dstn:dpcn=s-11255:clli=mahgcs09
+ent-ls:lst=a:adapter=m3ua:slktps=250:lsn=vmahgc09i3:apcn=s-11255:ipsg=yes
+chg-ls:lsn=vmahgc09i3:maxslktps=9500
+chg-ls:lsn=vmahgc09i3:rcontext=104
+
+===========================================================================================
+
+------------------------IP Route for SLC:0------------------------
+
+ent-ip-rte:submask=255.255.255.255:loc=1105:dest=10.10.10.1:gtwy=10.96.64.193
+ent-ip-rte:submask=255.255.255.255:loc=1105:dest=10.20.20.1:gtwy=10.96.65.193
+
+------------------------IP Route for SLC:1------------------------
+
+ent-ip-rte:submask=255.255.255.255:loc=1214:dest=10.10.10.2:gtwy=10.96.64.193
+ent-ip-rte:submask=255.255.255.255:loc=1214:dest=10.20.20.2:gtwy=10.96.65.193
+
+------------------------IP Route for SLC:2------------------------
+
+ent-ip-rte:submask=255.255.255.255:loc=2216:dest=10.10.10.3:gtwy=10.96.64.193
+ent-ip-rte:submask=255.255.255.255:loc=2216:dest=10.20.20.3:gtwy=10.96.65.193
+
+------------------------IP Route for SLC:3------------------------
+
+ent-ip-rte:submask=255.255.255.255:loc=1304:dest=10.10.10.4:gtwy=10.96.64.193
+ent-ip-rte:submask=255.255.255.255:loc=1304:dest=10.20.20.4:gtwy=10.96.65.193
+
+===========================================================================================
+
+------------------------IP Host for SLC:0------------------------
+
+ent-ip-host:host=mah.gc.10.10.10.1:ipaddr=10.10.10.1:type=remote
+ent-ip-host:host=mah.gc.10.20.20.1:ipaddr=10.20.20.1:type=remote
+
+------------------------IP Host for SLC:1------------------------
+
+ent-ip-host:host=mah.gc.10.10.10.2:ipaddr=10.10.10.2:type=remote
+ent-ip-host:host=mah.gc.10.20.20.2:ipaddr=10.20.20.2:type=remote
+
+------------------------IP Host for SLC:2------------------------
+
+ent-ip-host:host=mah.gc.10.10.10.3:ipaddr=10.10.10.3:type=remote
+ent-ip-host:host=mah.gc.10.20.20.3:ipaddr=10.20.20.3:type=remote
+
+------------------------IP Host for SLC:3------------------------
+
+ent-ip-host:host=mah.gc.10.10.10.4:ipaddr=10.10.10.4:type=remote
+ent-ip-host:host=mah.gc.10.20.20.4:ipaddr=10.20.20.4:type=remote
+
+===========================================================================================
+
+Assoc:0
+
+ent-assoc:aname=v1212kalgc09u00:lhost=raj.slic1105a.192.168.120.10:rhost=mah.gc.10.10.10.1:lport=2905:rport=4005.0:adapter=m3ua
+chg-assoc:aname=v1212kalgc09u00:alhost=raj.slic1105b.192.168.121.10
+chg-assoc:aname=v1212kalgc09u00:rhosttype=alternate:rhost=mah.gc.10.20.20.1
+chg-assoc:aname=v1212kalgc09u00:rtxthr=65535
+
+Assoc:1
+
+ent-assoc:aname=v1214kalgc09u01:lhost=raj.enetb1214a.10.96.64.202:rhost=mah.gc.10.10.10.2:lport=2905:rport=4005.0:adapter=m3ua
+chg-assoc:aname=v1214kalgc09u01:alhost=raj.enetb1214b.10.96.65.202
+chg-assoc:aname=v1214kalgc09u01:rhosttype=alternate:rhost=mah.gc.10.20.20.2
+chg-assoc:aname=v1214kalgc09u01:rtxthr=65535
+
+Assoc:2
+
+ent-assoc:aname=v1216kalgc09u02:lhost=raj.enetb2216a.10.96.64.220:rhost=mah.gc.10.10.10.3:lport=2906:rport=4007.0:adapter=m3ua
+chg-assoc:aname=v1216kalgc09u02:alhost=raj.enetb2216b.10.96.65.220
+chg-assoc:aname=v1216kalgc09u02:rhosttype=alternate:rhost=mah.gc.10.20.20.3
+chg-assoc:aname=v1216kalgc09u02:rtxthr=65535
+
+Assoc:3
+
+ent-assoc:aname=v1304kalgc09u03:lhost=raj.enetb1304a.10.96.64.204:rhost=mah.gc.10.10.10.4:lport=2906:rport=4007.0:adapter=m3ua
+chg-assoc:aname=v1304kalgc09u03:alhost=raj.enetb1304b.10.96.65.204
+chg-assoc:aname=v1304kalgc09u03:rhosttype=alternate:rhost=mah.gc.10.20.20.4
+chg-assoc:aname=v1304kalgc09u03:rtxthr=65535
+
+===========================================================================================
+
+SLk:0
+
+ent-slk:loc=1105:link=A1:aname=v1212kalgc09u00:lsn=vmahgc09i3:slc=0
+
+SLk:1
+
+ent-slk:loc=1214:link=A1:aname=v1214kalgc09u01:lsn=vmahgc09i3:slc=1
+
+SLk:2
+
+ent-slk:loc=2216:link=A1:aname=v1216kalgc09u02:lsn=vmahgc09i3:slc=2
+
+SLk:3
+
+ent-slk:loc=1304:link=A1:aname=v1304kalgc09u03:lsn=vmahgc09i3:slc=3
+
+===========================================================================================
+
+------------------------Primary Route------------------------
+
+
+ent-rte:rc=10:dpcn=s-11255:lsn=vmahgc09i3
+===========================================================================================
+
+------------------------Secondary Route------------------------
+
+
+ent-rte:rc=20:dpcn=s-11255:lsn=vpunst01i3
+===========================================================================================
+

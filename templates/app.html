@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3UA Database Creation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* Additional custom styles can be placed here */
+        body {
+            background-color: #FFE6D0; /* Custom background color */
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen">
+    <div class="container mx-auto p-8 bg-white rounded-md shadow-md max-w-md">
+        <img src="{% static 'logo.png' %}" alt="logo" class="mx-auto mb-8" width="150">
+
+        <form method="post" enctype="multipart/form-data" class="text-center" id="uploadForm" action="{% url 'handle_form_submission' %}">
+            {% csrf_token %}
+            <h1 class="text-2xl font-bold mb-4">M3UA Database Creation</h1>
+            
+            <label for="file-input" class="block mb-2">Upload file:</label>
+            <!-- Custom file input button -->
+            <div class="relative inline-block mb-6">
+                <input type="file" name="uploaded_file" id="file-input" accept=".xlsx, .xls" class="sr-only" required onchange="handleFileChange(this)">
+                <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-700" onclick="document.getElementById('file-input').click()">Upload</button>
+            </div>
+            <div id="file-name" class="text-left mb-4"></div> <!-- Display file name here -->
+        
+            <label for="number_of_linksets" class="block mb-2">Enter the number of links:</label>
+            <input type="number" name="number_of_linksets" min="1" step="1" class="block w-full px-4 py-2 mb-6 border border-gray-300 rounded-md" required>
+            
+            <label for="dpc" class="block mb-2">Enter DPC:</label>
+            <input type="text" name="dpc" value="s-" class="block w-full px-4 py-2 mb-6 border border-gray-300 rounded-md" required>
+            
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-700">Submit</button>
+            
+        </form>
+    </div>
+
+    <script>
+        // Function to trigger file input click event when upload button is clicked
+        function handleFileInput() {
+            document.getElementById('file-input').click();
+        }
+        
+        // Function to handle file change event and display file name
+        function handleFileChange(input) {
+            const fileName = input.files[0].name;
+            document.getElementById('file-name').innerText = `Selected file: ${fileName}`;
+        }
+
+        // // Attach event listener to upload button
+        // document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        //     event.preventDefault(); // Prevent default form submission
+            
+        //     // Perform form submission using AJAX or fetch API if needed
+        //     const formData = new FormData(this);
+        //     for (const [name, value] of formData.entries()) {
+        //         console.log(name, value);
+        //     }
+
+        //     // Fetch endpoint to get download button HTML
+        //     fetch('/generate_download_button', {
+        //         method: 'POST',
+        //         body: formData
+        //     })
+        //     .then(response => response.text())
+        //     .then(html => {
+        //         document.getElementById('download-button-container').innerHTML = html;
+        //     })
+        //     .catch(error => {
+        //         console.error('Error:', error);
+        //     });
+        // });
+
+       
+    </script>
+</body>
+</html>
