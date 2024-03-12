@@ -26,12 +26,13 @@ SECRET_KEY = 'django-insecure-e3wlh!m1=15cjx^zwmoms_n27+jq=jw8)@xrb2-qktok#^gx=c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'myproject',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -68,8 +69,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
-
+# WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = 'myproject.wsgi.app'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -126,3 +127,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
